@@ -50,7 +50,6 @@ export const ConteinerEsculturas = styled.div`
     display: flex;
     padding: 0 5rem;
     width: 60%;
-    /* background-color: red; */
     justify-content: center;
     overflow: hidden;
     `

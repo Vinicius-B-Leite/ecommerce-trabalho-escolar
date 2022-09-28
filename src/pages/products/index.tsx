@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../../components/navbar'
 import Card from './card'
-import { Conteiner, MeuCarrinho, MeuCarrinhoTitulo } from './styled'
+import { Botao, Conteiner, ConteinerBotao, ConteinerPaginacao, Letreiro, MeuCarrinho, MeuCarrinhoTitulo } from './styled'
 import { MdOutlineAddShoppingCart } from 'react-icons/md'
 import { colors } from '../../theme/color'
 
@@ -17,7 +17,7 @@ export default function Products() {
         },
         {
             nome: 'escultura dedo do meio',
-            src: 'https://firebasestorage.googleapis.com/v0/b/ecommerce-c7b20.appspot.com/o/escultura-dedo-do-meio.png?alt=media&token=95e4e3ea-62fc-492d-bc35-4cb2c9b540d5'
+            src: 'https://firebasestorage.googleapis.com/v0/b/ecommerce-c7b20.appspot.com/o/dedo-do-meio.png?alt=media&token=1a5e2dd2-ecae-4795-b845-853b30cea1b1'
         }
     ]
 
@@ -26,13 +26,21 @@ export default function Products() {
             <Navbar />
             <Conteiner>
                 <Card src={esculturas[0].src} />
-                <h1>ejhfkjehakh</h1>
-                <Card src={esculturas[0].src} />
+                <ConteinerPaginacao>
+                    <Letreiro>Expolere todos os produtos</Letreiro>
+                    <ConteinerBotao>
+                        <Botao>1</Botao>
+                        <Botao>2</Botao>
+                        <Botao>3</Botao>
+                    </ConteinerBotao>
+                </ConteinerPaginacao>
+
+                <Card src={esculturas[1].src} />
                 <MeuCarrinho>
                     <MeuCarrinhoTitulo>Meu Carrinho</MeuCarrinhoTitulo>
                     <MdOutlineAddShoppingCart color={colors.destaque} fontSize={60}/>
                 </MeuCarrinho>
-                <Card src={esculturas[0].src} />
+                <Card src={esculturas[2].src} />
                 <Card src={esculturas[0].src} />
                 <Card src={esculturas[0].src} />
             </Conteiner>
