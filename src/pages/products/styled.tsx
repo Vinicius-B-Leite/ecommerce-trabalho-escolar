@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { colors } from "../../theme/color";
+import { Link } from "react-router-dom";
 
 export const Conteiner = styled.div`
     width: 100%;
@@ -60,7 +61,7 @@ export const Letreiro = styled.h2`
 
 
 
-export const MeuCarrinho = styled.div`
+export const MeuCarrinho = styled(Link)`
     display: flex;
     flex-direction: column;
     align-items: center;

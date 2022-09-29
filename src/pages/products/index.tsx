@@ -36,7 +36,7 @@ export default function Products() {
                 </ConteinerPaginacao>
 
                 <Card src={esculturas[1].src} />
-                <MeuCarrinho>
+                <MeuCarrinho to="/carrinho">
                     <MeuCarrinhoTitulo>Meu Carrinho</MeuCarrinhoTitulo>
                     <MdOutlineAddShoppingCart color={colors.destaque} fontSize={60}/>
                 </MeuCarrinho>
