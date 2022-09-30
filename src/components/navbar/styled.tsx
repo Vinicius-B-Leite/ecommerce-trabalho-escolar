@@ -34,4 +34,7 @@ export const LinkTo = styled(Link)`
     color: #d9d9d9;
     font-size: 1.3rem;
     font-weight: 500;
+    &:hover{
+        cursor: url(${require('../../assets/cursor/cursorAtivo.png')}), auto;
+    }
 `

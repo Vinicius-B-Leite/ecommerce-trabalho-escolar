@@ -19,7 +19,7 @@ export default function Home() {
         },
         {
             nome: 'escultura dedo do meio',
-            src: 'https://firebasestorage.googleapis.com/v0/b/ecommerce-c7b20.appspot.com/o/escultura-dedo-do-meio.png?alt=media&token=95e4e3ea-62fc-492d-bc35-4cb2c9b540d5'
+            src: 'https://firebasestorage.googleapis.com/v0/b/ecommerce-c7b20.appspot.com/o/dedo-do-meio.png?alt=media&token=1a5e2dd2-ecae-4795-b845-853b30cea1b1'
         }
     ]
 

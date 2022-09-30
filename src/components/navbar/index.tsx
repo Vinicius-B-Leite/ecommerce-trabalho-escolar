@@ -10,7 +10,7 @@ export default function Navbar(){
                     <ConteinerLink><LinkTo to="/">Home</LinkTo></ConteinerLink>
                     <ConteinerLink><LinkTo to="/produtos">Produtos</LinkTo></ConteinerLink>
                 </ListaLink>
-                <LinkTo to="#">Meu carrinho</LinkTo>
+                <LinkTo to="/carrinho">Meu carrinho</LinkTo>
             </NavBar>
         </Conteiner>
     )

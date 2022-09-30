@@ -70,6 +70,7 @@ export const MeuCarrinho = styled(Link)`
     border-top: none;
     border-left: 0.2rem solid ${colors.texto};
     display: flex;
+    text-decoration: none;
 `
 export const MeuCarrinhoTitulo = styled.h1`
     color: ${colors.texto};

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Products from './pages/products';
 import Buy from './pages/buy';
 import { createGlobalStyle } from 'styled-components';
+import { ProdutoContextoProvider } from './contexts/ProdutoContext';
 
 const cursor = require('./assets/cursor/cursor.png')
 const GlobalStyle = createGlobalStyle`
@@ -20,14 +21,16 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   return (
-    <Router>
-      <GlobalStyle/>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/produtos' element={<Products />} />
-        <Route path='/carrinho' element={<Buy />} />
-      </Routes>
-    </Router>
+    <ProdutoContextoProvider>
+      <Router>
+        <GlobalStyle />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/produtos' element={<Products />} />
+          <Route path='/carrinho' element={<Buy />} />
+        </Routes>
+      </Router>
+    </ProdutoContextoProvider>
   );
 }
 

@@ -1,16 +1,21 @@
 import styled from "styled-components";
 import { colors } from "../../../theme/color";
 
-export const Conteiner = styled.div`
+
+type ConteinerProps = {
+    selecionado: boolean
+}
+export const Conteiner = styled.button<ConteinerProps>`
     width: 20rem;
     background-color: ${colors.backgroundCard};
     margin-top: 2rem;
     justify-self: center;
-    border: .2rem solid white;
+    border: .2rem solid ${p => p.selecionado ? colors.destaque : 'white'};
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: url(${require('../../../assets/cursor/cursorAtivo.png')}), auto;
 `
 
 export const Produto = styled.img`
