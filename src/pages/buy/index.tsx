@@ -1,48 +1,75 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Navbar from "../../components/navbar";
-import { BotaoComprar, BotaoProximaPag, Conteiner, ConteinerComprar, ConteinerCupom, ConteinerInfoProduto, ConteinerProdutos, CupomInput, CupomLabel, ImagemEscultura, NomeEscultura, Preco, Produto, ProdutoImagem, TotalPreco } from "./styles";
+import { BotaoComprar, BotaoProximaPag, CarrinhoVazio, Conteiner, ConteinerComprar, ConteinerCupom, ConteinerInfoProduto, ConteinerProdutos, CupomInput, CupomLabel, ImagemEscultura, NomeEscultura, Preco, Produto, ProdutoImagem, TotalPreco } from "./styles";
 import { MdOutlineNavigateNext } from 'react-icons/md';
+import { ProdutoContext } from "../../contexts/ProdutoContext";
+import { IProduto } from "../../types/IProduto";
 
 
 export default function Buy() {
+    const { produtosNoCarrinho, total } = useContext(ProdutoContext)
+    var [index, setIndex] = useState(0)
+    var [produtosAtuais, setProdutosAtuais] = useState((produtosNoCarrinho.length > 1) ? [produtosNoCarrinho[index], produtosNoCarrinho[index + 1]] : [produtosNoCarrinho[index]])
+
+    const proximosProdutos = () => {
+        if (index + 2 <= produtosNoCarrinho.length) {
+            setIndex(index + 2)
+            setProdutosAtuais(((produtosNoCarrinho.length - 2) > 1) ? [produtosNoCarrinho[index], produtosNoCarrinho[index + 1]] : [produtosNoCarrinho[index + 2]])
+        }else {
+            setIndex(0)
+            setProdutosAtuais(((produtosNoCarrinho.length - index) > 1) ? [produtosNoCarrinho[0], produtosNoCarrinho[1]] : [produtosNoCarrinho[produtosNoCarrinho.length - 1]])
+        }
+    }
+
+
+
     return (
         <>
             <Navbar />
             <Conteiner>
+                {
+                    produtosNoCarrinho.length > 0 ?
+                        (
+                            <>
+                                <div>
+                                    {
+                                        produtosAtuais.map(({ src, nome, preco }) => {
+                                            return (
+                                                <ConteinerProdutos >
+                                                    <Produto>
+                                                        <ProdutoImagem src={src} alt={nome} />
+                                                    </Produto>
+                                                    <ConteinerInfoProduto>
+                                                        <NomeEscultura>{nome}</NomeEscultura>
+                                                        <Preco>R$ {preco.toString().replace('.', ',')}</Preco>
+                                                    </ConteinerInfoProduto>
+                                                </ConteinerProdutos>
+                                            )
+                                        })
+                                    }
+                                    {produtosNoCarrinho.length > 2 && <BotaoProximaPag onClick={() => proximosProdutos()}><MdOutlineNavigateNext /></BotaoProximaPag>}
+                                </div>
+                                <ConteinerComprar>
+                                    <ConteinerCupom>
+                                        <CupomLabel htmlFor="cupom">Você tem algum cupom?</CupomLabel>
+                                        <CupomInput id="cupom" type="text" />
+                                    </ConteinerCupom>
+                                    <div>
+                                        <TotalPreco>Total: R$ {total.toString().replace('.', ',')}</TotalPreco>
+                                        <ImagemEscultura src={require('../../assets/esculturas/escultura-poseidon.png')} alt="" />
+                                    </div>
+                                    <BotaoComprar>Comprar</BotaoComprar>
+                                </ConteinerComprar>
+                            </>
 
-                <div>
-                    <ConteinerProdutos >
-                        <Produto>
-                            <ProdutoImagem src="https://firebasestorage.googleapis.com/v0/b/ecommerce-c7b20.appspot.com/o/dedo-do-meio.png?alt=media&token=1a5e2dd2-ecae-4795-b845-853b30cea1b1" alt="" />
-                        </Produto>
-                        <ConteinerInfoProduto>
-                            <NomeEscultura>nome da escultura</NomeEscultura>
-                            <Preco>R$ 3.000,00</Preco>
-                        </ConteinerInfoProduto>
-                    </ConteinerProdutos>
-                    <ConteinerProdutos >
-                        <Produto>
-                            <ProdutoImagem src="https://firebasestorage.googleapis.com/v0/b/ecommerce-c7b20.appspot.com/o/dedo-do-meio.png?alt=media&token=1a5e2dd2-ecae-4795-b845-853b30cea1b1" alt="" />
-                        </Produto>
-                        <ConteinerInfoProduto>
-                            <NomeEscultura>nome da escultura</NomeEscultura>
-                            <Preco>R$ 3.000,00</Preco>
-                        </ConteinerInfoProduto>
-                    </ConteinerProdutos>
-                    <BotaoProximaPag><MdOutlineNavigateNext /></BotaoProximaPag>
-                </div>
+                        )
+                        :
+                        <CarrinhoVazio>Carrinho vazio</CarrinhoVazio>
+                }
 
-                <ConteinerComprar>
-                    <ConteinerCupom>
-                        <CupomLabel htmlFor="cupom">Você tem algum cupom?</CupomLabel>
-                        <CupomInput id="cupom" type="text" />
-                    </ConteinerCupom>
-                    <div>
-                        <TotalPreco>Total: R$ 3.000,00</TotalPreco>
-                        <ImagemEscultura src={require('../../assets/esculturas/escultura-poseidon.png')} alt="" />
-                    </div>
-                    <BotaoComprar>Comprar</BotaoComprar>
-                </ConteinerComprar>
+
+
+
 
             </Conteiner>
         </>

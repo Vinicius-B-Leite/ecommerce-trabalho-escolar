@@ -4,11 +4,13 @@ import { IProduto } from '../types/IProduto'
 
 type ProdutoContext = {
     produtosNoCarrinho: IProduto[],
-    setProdutosNoCarrinho: React.Dispatch<React.SetStateAction<IProduto[]>>
+    setProdutosNoCarrinho: React.Dispatch<React.SetStateAction<IProduto[]>>,
+    total: number
 }
 const ValorInicial = {
     produtosNoCarrinho: [],
-    setProdutosNoCarrinho: ()=>{}
+    setProdutosNoCarrinho: ()=>{},
+    total: 0.0
 }
 
 export const ProdutoContext = createContext<ProdutoContext>(ValorInicial)
@@ -19,12 +21,20 @@ type Props = {
 }
 export function ProdutoContextoProvider({children}: Props){
     const [produtosNoCarrinho, setProdutosNoCarrinho] = useState<IProduto[]>(ValorInicial.produtosNoCarrinho)
+    var total = 0
 
+    const calculaTotal = () => {
+        produtosNoCarrinho.forEach(p => total += p.preco)
+        total.toFixed(2)
+    }
+
+    calculaTotal()
     return(
         <ProdutoContext.Provider value={
             {   
                 produtosNoCarrinho,
-                setProdutosNoCarrinho
+                setProdutosNoCarrinho,
+                total
             }
             }> 
             {children}

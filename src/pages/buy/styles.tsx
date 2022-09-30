@@ -4,7 +4,7 @@ import { colors } from "../../theme/color";
 export const Conteiner = styled.div`
     display: grid;
     width: 100%;
-    grid-template-columns: 75% 25%;
+    grid-template-columns: 75vw 25vw;
 
 `
 
@@ -12,6 +12,7 @@ export const ConteinerProdutos = styled.div`
     display: flex;
     box-sizing: border-box;
     border-bottom: .2rem solid white;
+    height: 19rem;
 `
 
 
@@ -23,14 +24,16 @@ export const Produto = styled.div`
     padding: .5rem;
     border-right: .2rem solid white;
     padding: 3rem;
+    width: 30%;
+
 `
 
 export const ProdutoImagem = styled.img`
-    max-width: 80%;
+    max-width: 70%;
 `
 
 export const ConteinerInfoProduto = styled.div`
-    width: 100%;
+    width: 70%;
     display: flex;
     align-items: center;
     gap: 2rem;
@@ -72,6 +75,7 @@ export const ConteinerComprar = styled.div`
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
+    height: 60vh;
 `
 
 export const ConteinerCupom = styled.div`
@@ -118,4 +122,14 @@ export const BotaoComprar = styled.button`
     border-radius: 50%;
     bottom: -1.2rem;
     right: -2.3rem;
+`
+
+export const CarrinhoVazio = styled.p`
+
+    color: ${colors.texto};
+    font-size: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 `
