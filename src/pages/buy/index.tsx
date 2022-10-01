@@ -1,9 +1,8 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import Navbar from "../../components/navbar";
 import { BotaoComprar, BotaoProximaPag, CarrinhoVazio, Conteiner, ConteinerComprar, ConteinerCupom, ConteinerInfoProduto, ConteinerProdutos, CupomInput, CupomLabel, ImagemEscultura, NomeEscultura, Preco, Produto, ProdutoImagem, TotalPreco } from "./styles";
 import { MdOutlineNavigateNext } from 'react-icons/md';
 import { ProdutoContext } from "../../contexts/ProdutoContext";
-import { IProduto } from "../../types/IProduto";
 
 
 export default function Buy() {

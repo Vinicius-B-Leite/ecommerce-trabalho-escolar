@@ -15,7 +15,7 @@ export default function Card({ produto }: Props) {
         setEstaNoCarrinho(true)
     }
     const tirarDoCarrinho = () => {
-        setProdutosNoCarrinho(p => p.filter(e => e.id != produto.id))
+        setProdutosNoCarrinho(p => p.filter(e => e.id !== produto.id))
         setEstaNoCarrinho(false)
     }
     return (

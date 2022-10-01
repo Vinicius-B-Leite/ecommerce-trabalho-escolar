@@ -1,11 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Navbar from '../../components/navbar'
 import Card from './card'
 import { Botao, Conteiner, ConteinerBotao, ConteinerPaginacao, Letreiro, MeuCarrinho, MeuCarrinhoTitulo } from './styled'
 import { MdOutlineAddShoppingCart } from 'react-icons/md'
 import { colors } from '../../theme/color'
-import { getDocs } from 'firebase/firestore'
-import { colecaoCarriho } from '../../firebase/firebase'
 import { IProduto } from '../../types/IProduto'
 
 export default function Products() {

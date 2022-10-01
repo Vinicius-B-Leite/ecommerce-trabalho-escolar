@@ -28,7 +28,7 @@ export default function Home() {
             if (contador === esculturas.length - 1) setContador(0)
             else setContador(c => c + 1)
         }, 10000)
-    }, [contador])
+    }, [contador, esculturas.length])
     
 
     return (
