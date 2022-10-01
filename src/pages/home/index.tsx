@@ -25,7 +25,7 @@ export default function Home() {
 
     useEffect(()=>{
         setTimeout(()=>{
-            if (contador == esculturas.length - 1) setContador(0)
+            if (contador === esculturas.length - 1) setContador(0)
             else setContador(c => c + 1)
         }, 10000)
     }, [contador])

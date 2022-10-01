@@ -2,7 +2,7 @@ import React, {createContext, useState} from 'react'
 import { IProduto } from '../types/IProduto'
 
 
-type ProdutoContext = {
+type ProdutoContextType = {
     produtosNoCarrinho: IProduto[],
     setProdutosNoCarrinho: React.Dispatch<React.SetStateAction<IProduto[]>>,
     total: number
@@ -13,7 +13,7 @@ const ValorInicial = {
     total: 0.0
 }
 
-export const ProdutoContext = createContext<ProdutoContext>(ValorInicial)
+export const ProdutoContext = createContext<ProdutoContextType>(ValorInicial)
 
 
 type Props = {
