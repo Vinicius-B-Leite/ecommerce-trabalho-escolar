@@ -44,9 +44,11 @@ export default function Home() {
                         <FaRecycle color={colors.destaque} size={60} />
                         <Paragrafo>Descubra a maior variedade de esculturas para combinar com a sua energia</Paragrafo>
                     </ConteinerParagrafo>
-                    <Botao onClick={()=>setContador(0)}>1</Botao>
-                    <Botao onClick={()=>setContador(1)}>2</Botao>
-                    <Botao onClick={()=>setContador(2)}>3</Botao>
+                    <div>
+                        <Botao onClick={()=>setContador(0)}>1</Botao>
+                        <Botao onClick={()=>setContador(1)}>2</Botao>
+                        <Botao onClick={()=>setContador(2)}>3</Botao>
+                    </div>
                 </ContinerPrincipal>
                 <ConteinerEsculturas>
                         <Esculturas src={esculturas[contador].src} alt={esculturas[contador].nome} />
@@ -55,7 +57,7 @@ export default function Home() {
                 <ImagemOuro src={require("../../assets/home/cor-de-ouro.jpg")} alt="" />
 
                 <BotaoVerMais to="/produtos">
-                    Ver Mais
+                    Produtos
                 </BotaoVerMais>
             </ContinerGeral>
 
